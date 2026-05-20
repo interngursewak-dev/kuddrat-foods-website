@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuddrat Foods - Organic Food from Punjab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid #8b6f47;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: #8b6f47;
+        }
+
+        .brand-info h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            color: #333;
+        }
+
+        .brand-info p {
+            font-size: 12px;
+            margin: 0.25rem 0 0 0;
+            color: #8b6f47;
+            font-weight: 600;
+        }
+
+        .whatsapp-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1fa952;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-location {
+            font-size: 16px;
+            color: #8b6f47;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #8b6f47;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #6b5435;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 2rem;
+        }
+
+        .products-header {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .products-header h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .products-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-emoji {
+            font-size: 80px;
+            padding: 2rem;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            display: inline-block;
+            font-size: 12px;
+            background-color: #8b6f47;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-benefits {
+            margin-bottom: 1rem;
+        }
+
+        .benefit {
+            font-size: 13px;
+            color: #8b6f47;
+            margin-bottom: 0.3rem;
+        }
+
+        .min-order {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .min-order strong {
+            color: #333;
+        }
+
+        .enquire-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .enquire-btn:hover {
+            background-color: #1fa952;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .why-choose-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-choose h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .reason-card {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            border-left: 4px solid #8b6f47;
+        }
+
+        .reason-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .reason-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .reason-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #ddd;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .contact-card:hover {
+            border-color: #8b6f47;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .contact-whatsapp {
+            border-color: #25d366 !important;
+        }
+
+        .contact-whatsapp .contact-icon {
+            color: #25d366;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-emoji {
+            font-size: 80px;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-benefits {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-benefits h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal-benefit {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 2px solid #ddd;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-section {
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🌿</div>
+                <div class="brand-info">
+                    <h1>Kuddrat Foods</h1>
+                    <p>Pure Organic. From Punjab. To You.</p>
+                </div>
+            </div>
+            <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+                💬 WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">🌿</div>
+            <h2>Welcome to Kuddrat Foods</h2>
+            <p>Premium organic food products from the fertile lands of Punjab. We bring you nature's bounty, cultivated with care and delivered with trust.</p>
+            <div class="hero-location">📍 Punjab, India</div>
+            <a href="https://wa.me/919876543210?text=Hello! I would like to know more about your products." target="_blank" class="cta-btn">
+                Inquire Now on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="products-header">
+            <h2>Our Products</h2>
+            <p>Authentic organic food straight from Punjab farms</p>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-content">
+            <h2>Why Choose Kuddrat Foods?</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">🌿</div>
+                    <div class="reason-title">100% Organic</div>
+                    <div class="reason-desc">Certified organic products from trusted Punjab farms</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">📦</div>
+                    <div class="reason-title">Fresh Harvested</div>
+                    <div class="reason-desc">Handpicked and delivered fresh to maintain quality</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">ℹ️</div>
+                    <div class="reason-title">Transparent</div>
+                    <div class="reason-desc">Direct from farms. No middlemen, no compromise</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">☎️</div>
+                    <div class="reason-title">Personal Service</div>
+                    <div class="reason-desc">Direct contact with our team for bulk orders</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-grid">
+            <a href="https://wa.me/919876543210" target="_blank" class="contact-card contact-whatsapp">
+                <div class="contact-icon">💬</div>
+                <div class="contact-title">WhatsApp</div>
+                <div class="contact-info">Quick inquiry & bulk orders</div>
+            </a>
+            <div class="contact-card">
+                <div class="contact-icon">☎️</div>
+                <div class="contact-title">Phone</div>
+                <div class="contact-info">+91 9876543210</div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-title">Email</div>
+                <div class="contact-info">info@kuddratfoods.com</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Kuddrat Foods. All products are certified organic. | Punjab, India</p>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div id="modalInfo"></div>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-emoji" id="modalEmoji"></div>
+            <p id="modalDesc" style="font-size: 16px; color: #666; line-height: 1.6; margin-bottom: 1.5rem;"></p>
+            <div class="modal-benefits">
+                <h4>Key Benefits</h4>
+                <div id="modalBenefits"></div>
+            </div>
+            <div id="modalMinOrder" style="margin-bottom: 1.5rem; font-size: 14px; color: #666;"></div>
+            <button class="enquire-btn" onclick="enquireViaWhatsApp()" style="width: 100%; padding: 1rem;">
+                💬 Send Enquiry on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // CHANGE THESE WITH YOUR DETAILS
+        const brandInfo = {
+            whatsappNumber: '919876543210',  // Change to your WhatsApp number
+            email: 'info@kuddratfoods.com',   // Change to your email
+            phone: '+91 9876543210'           // Change to your phone
+        };
+
+        const products = [
+            {
+                id: 1,
+                name: 'Organic Wheat',
+                category: 'Grains',
+                emoji: '🌾',
+                description: 'Premium organic wheat flour, stone-ground. Rich in fiber and nutrients.',
+                benefits: ['High protein', 'No pesticides', 'Fresh ground daily'],
+                minOrder: '5 kg'
+            },
+            {
+                id: 2,
+                name: 'Organic Jaggery (Gur)',
+                category: 'Sweeteners',
+                emoji: '🟤',
+                description: 'Traditional jaggery made from sugarcane. Unrefined and mineral-rich.',
+                benefits: ['Energy boost', 'Rich in iron', 'Natural sweetness'],
+                minOrder: '1 kg'
+            },
+            {
+                id: 3,
+                name: 'Organic Rice',
+                category: 'Grains',
+                emoji: '🍚',
+                description: 'Hand-selected basmati and regular rice. Organic certified.',
+                benefits: ['Pure quality', 'No chemicals', 'Long shelf life'],
+                minOrder: '5 kg'
+            },
+            {
+                id: 4,
+                name: 'Organic Ghee',
+                category: 'Dairy',
+                emoji: '🥛',
+                description: 'Pure cow ghee prepared traditionally. A2 milk-based.',
+                benefits: ['High nutrition', 'Great taste', 'Long lasting'],
+                minOrder: '500 ml'
+            },
+            {
+                id: 5,
+                name: 'Organic Spices Mix',
+                category: 'Spices',
+                emoji: '🫑',
+                description: 'Blend of authentic Punjabi spices. Hand-selected and ground.',
+                benefits: ['Fresh aroma', 'Bold flavor', 'No fillers'],
+                minOrder: '500g'
+            },
+            {
+                id: 6,
+                name: 'Organic Dry Fruits',
+                category: 'Nuts',
+                emoji: '🥜',
+                description: 'Premium almonds, cashews, and walnuts. Direct from farms.',
+                benefits: ['High quality', 'Fresh harvest', 'No additives'],
+                minOrder: '250g'
+            }
+        ];
+
+        let selectedProduct = null;
+
+        // Render products
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map(product => `
+                <div class="product-card" onclick="openModal(${product.id})">
+                    <div class="product-emoji">${product.emoji}</div>
+                    <div class="product-content">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-desc">${product.description}</p>
+                        <div class="product-benefits">
+                            ${product.benefits.map(b => `<div class="benefit">✓ ${b}</div>`).join('')}
+                        </div>
+                        <div class="min-order">Min. order: <strong>${product.minOrder}</strong></div>
+                        <button class="enquire-btn" onclick="event.stopPropagation(); inquireProduct(${product.id})">
+                            💬 Enquire on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open product modal
+        function openModal(productId) {
+            selectedProduct = products.find(p => p.id === productId);
+            const modal = document.getElementById('productModal');
+            
+            document.getElementById('modalInfo').innerHTML = `
+                <span class="product-category">${selectedProduct.category}</span>
+                <h2 style="font-size: 28px; font-weight: 600; margin: 0.5rem 0 0 0; color: #333;">${selectedProduct.name}</h2>
+            `;
+            
+            document.getElementById('modalEmoji').textContent = selectedProduct.emoji;
+            document.getElementById('modalDesc').textContent = selectedProduct.description;
+            
+            document.getElementById('modalBenefits').innerHTML = selectedProduct.benefits
+                .map(b => `<div class="modal-benefit">✓ ${b}</div>`)
+                .join('');
+            
+            document.getElementById('modalMinOrder').innerHTML = `<strong>Minimum order:</strong> ${selectedProduct.minOrder}`;
+            
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+            selectedProduct = null;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Inquire via WhatsApp
+        function inquireProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            let message = `Hello! I'm interested in enquiring about ${product.name}.`;
+            message += `\n\nCould you provide more details about pricing, availability, and bulk orders?`;
+            message += `\n\nMinimum order: ${product.minOrder}`;
+            
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${brandInfo.whatsappNumber}?text=${encoded}`, '_blank');
+        }
+
+        // Enquire via WhatsApp from modal
+        function enquireViaWhatsApp() {
+            if (selectedProduct) {
+                inquireProduct(selectedProduct.id);
+            }
+        }
+
+        // Update contact details in HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update phone number in contact section
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(card => {
+                const title = card.querySelector('.contact-title');
+                if (title && title.textContent === 'Phone') {
+                    card.querySelector('.contact-info').textContent = brandInfo.phone;
+                }
+                if (title && title.textContent === 'Email') {
+                    card.querySelector('.contact-info').textContent = brandInfo.email;
+                }
+            });
+            
+            // Render products
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
